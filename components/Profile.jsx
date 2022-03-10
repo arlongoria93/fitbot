@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
-import Image from "next/image";
 import Loading from "./Loading";
+import { Avatar } from "@chakra-ui/react";
 const Profile = () => {
   const { user, error, isLoading } = useUser();
 
@@ -12,7 +12,7 @@ const Profile = () => {
   return (
     user && (
       <div>
-        <Image src={user.picture} alt={user.name} height="100" width="100" />
+        <Avatar src={user.picture} name={user.name} size="xl" />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
       </div>

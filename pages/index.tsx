@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
-import Link from "next/link";
+import NextLink from "next/link";
+import { Link } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   return (
     <div>
-      <a href="/api/auth/login">Login</a>
-      <a href="/api/auth/logout">Logout</a>
-      <Link href="/user">Profile</Link>
+      <Link href="/api/auth/login">Login</Link>
+      <Link href="/api/auth/logout">Logout</Link>
+      <NextLink href="/user">Profile</NextLink>
     </div>
   );
 };
