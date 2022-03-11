@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = process.env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 model Account {
@@ -45,6 +45,23 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  workouts      Workout[]
+}
+
+model Exercise {
+  id        String   @id @default(cuid())
+  name      String
+  body      String
+  how       String
+  workout   Workout? @relation(fields: [workoutId], references: [id])
+  workoutId String?
+}
+
+model Workout {
+  id        String     @id @default(cuid())
+  exercises Exercise[]
+  user      User       @relation(fields: [userId], references: [id])
+  userId    String
 }
 
 model VerificationToken {
