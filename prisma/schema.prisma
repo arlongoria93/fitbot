@@ -49,19 +49,28 @@ model User {
 }
 
 model Exercise {
-  id        String   @id @default(cuid())
-  name      String
-  body      String
-  how       String
-  workout   Workout? @relation(fields: [workoutId], references: [id])
-  workoutId String?
+  id      Int                   @id @default(autoincrement())
+  name    String
+  body    String
+  how     String
+  workout WorkoutsOnExercises[]
 }
 
 model Workout {
-  id        String     @id @default(cuid())
-  exercises Exercise[]
-  user      User       @relation(fields: [userId], references: [id])
-  userId    String
+  id        Int                   @id @default(autoincrement())
+  exercises WorkoutsOnExercises[]
+  user      User                  @relation(fields: [userEmail], references: [email])
+  userEmail String
+}
+
+model WorkoutsOnExercises {
+  exercise   Exercise @relation(fields: [exerciseId], references: [id])
+  exerciseId Int
+  Workout    Workout  @relation(fields: [workoutId], references: [id])
+  workoutId  Int
+  assignedAt DateTime @default(now())
+
+  @@id([exerciseId, workoutId])
 }
 
 model VerificationToken {

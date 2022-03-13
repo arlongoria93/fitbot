@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 
 import { useSession, signOut } from "next-auth/react";
+import Router from "next/router";
+
 type Props = {};
 
 const Navbar = (props: Props) => {
@@ -61,7 +63,10 @@ const Navbar = (props: Props) => {
             <MenuItem
               _hover={{ bg: "brand.onPrimary", color: "brand.secondary" }}
               command="⌘T"
-              onClick={() => signOut()}
+              onClick={() => {
+                signOut();
+                Router.push("/");
+              }}
             >
               Logout
             </MenuItem>
