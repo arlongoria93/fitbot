@@ -1,13 +1,15 @@
 import { useSession, signOut } from "next-auth/react";
 import NotLoggedIn from "../components/NotLoggedIn";
+import Landing from "../components/Landing";
 
 export default function Component() {
   const { data: session } = useSession();
+
   if (session) {
     return (
       <>
-        Signed in as {session.user.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
+        <Landing name={session.user.name} />
       </>
     );
   }
@@ -16,4 +18,7 @@ export default function Component() {
       <NotLoggedIn />
     </>
   );
+}
+{
+  /* <button onClick={() => signOut()}>Sign out</button> */
 }
