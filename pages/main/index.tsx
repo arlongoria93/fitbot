@@ -26,6 +26,7 @@ const Main = (props: Props) => {
   const handleNewWorkout = async () => {
     try {
       await fetch("/api/workout");
+
       Router.push("/workout");
     } catch (error) {
       console.error(error);
@@ -55,7 +56,7 @@ const Main = (props: Props) => {
                     </Button>
                   </Link>
 
-                  <NextLink href="/workout">
+                  <NextLink href="/exercises">
                     <Link w="full">
                       <Button
                         size="lg"

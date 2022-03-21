@@ -9,7 +9,7 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-
+import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import Router from "next/router";
 
@@ -26,7 +26,11 @@ const Navbar = (props: Props) => {
         p="1.5rem"
         justifyContent="space-between"
       >
-        <Heading fontSize="xx-large">FitBot</Heading>
+        <Link href="/">
+          <Heading _hover={{ cursor: "pointer" }} fontSize="xx-large">
+            FitBot
+          </Heading>
+        </Link>
         <Menu autoSelect={false}>
           <MenuButton
             as={Avatar}
