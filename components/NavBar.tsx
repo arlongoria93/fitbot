@@ -54,19 +54,19 @@ const Navbar = (props: Props) => {
           <MenuList bg="brand.onPrimary" border="none" shadow="md">
             <MenuItem
               _hover={{ bg: "brand.onPrimary", color: "brand.secondary" }}
-              command="⌘T"
+              onClick={() => {
+                Router.push("/main");
+              }}
             >
               New Workout
             </MenuItem>{" "}
             <MenuItem
               _hover={{ bg: "brand.onPrimary", color: "brand.secondary" }}
-              command="⌘T"
             >
               Log
             </MenuItem>{" "}
             <MenuItem
               _hover={{ bg: "brand.onPrimary", color: "brand.secondary" }}
-              command="⌘T"
               onClick={() => {
                 signOut();
                 Router.push("/");
