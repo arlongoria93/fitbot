@@ -12,12 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-type Props = {
-  name: string;
-  img: string;
-};
-
-const Landing = (props: Props) => {
+const Landing = (props) => {
   const router = useRouter();
   const [showName, setShowName] = useState(true);
   useEffect(() => {
