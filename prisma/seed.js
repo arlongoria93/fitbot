@@ -1,8 +1,7 @@
-import { PrismaClient, Prisma } from "@prisma/client";
-
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-const exerciseData: Prisma.ExerciseCreateInput[] = [
+const exerciseData = [
   {
     name: "Barbell Bench Press",
     body: "chest",
