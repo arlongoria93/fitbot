@@ -16,9 +16,9 @@ import { useEffect, useState } from "react";
 import useSWR from "swr";
 import NotLoggedIn from "../../components/NotLoggedIn";
 import Router from "next/router";
-type Props = {};
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const index = (props: Props) => {
+const index = (props) => {
   const { data: session } = useSession();
   const [workoutId, setWorkoutId] = useState(0);
   const { data, error } = useSWR("/api/workout/recent", fetcher);
