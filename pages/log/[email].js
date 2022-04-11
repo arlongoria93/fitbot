@@ -23,11 +23,8 @@ import Navbar from "../../components/NavBar";
 import NotLoggedIn from "../../components/NotLoggedIn";
 import prisma from "../../utils/prisma";
 import { FaDumbbell } from "react-icons/fa";
-type Props = {
-  workouts?: { id: number; userEmail: string };
-};
 
-const Main = (props: Props) => {
+const Main = (props) => {
   const { data: session } = useSession();
   console.log(props);
   if (session)
