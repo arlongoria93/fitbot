@@ -15,7 +15,9 @@ import React from "react";
 import { useSession, signOut } from "next-auth/react";
 import Navbar from "../../components/NavBar";
 import NotLoggedIn from "../../components/NotLoggedIn";
-import prisma from "../../utils/prisma";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
+
 const Exercises = (props) => {
   const { data: session } = useSession();
   if (session)

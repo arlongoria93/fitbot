@@ -13,7 +13,8 @@ import Navbar from "../../../components/NavBar";
 import NotLoggedIn from "../../../components/NotLoggedIn";
 
 import { useSession, signOut } from "next-auth/react";
-import prisma from "../../../utils/prisma";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 const SingleWorkout = (props) => {
   const [workout, setWorkout] = useState([]);
   const router = useRouter();

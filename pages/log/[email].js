@@ -21,9 +21,10 @@ import React, { useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Navbar from "../../components/NavBar";
 import NotLoggedIn from "../../components/NotLoggedIn";
-import prisma from "../../utils/prisma";
-import { FaDumbbell } from "react-icons/fa";
+import { PrismaClient } from "@prisma/client";
 
+import { FaDumbbell } from "react-icons/fa";
+const prisma = new PrismaClient();
 const Main = (props) => {
   const { data: session } = useSession();
   console.log(props);
