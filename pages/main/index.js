@@ -20,9 +20,7 @@ import Navbar from "../../components/NavBar";
 import NotLoggedIn from "../../components/NotLoggedIn";
 import Router from "next/router";
 
-type Props = {};
-
-const Main = (props: Props) => {
+const Main = (props) => {
   const handleNewWorkout = async () => {
     try {
       await fetch("/api/workout");

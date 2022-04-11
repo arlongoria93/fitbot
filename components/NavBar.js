@@ -13,9 +13,7 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import Router from "next/router";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = (props) => {
   const { data: session } = useSession();
 
   return (

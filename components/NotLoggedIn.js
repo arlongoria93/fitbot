@@ -2,9 +2,7 @@ import { Box, Center, VStack, Heading, Text, Spacer } from "@chakra-ui/react";
 import React from "react";
 import { signIn } from "next-auth/react";
 
-type Props = {};
-
-const NotLoggedIn = (props: Props) => {
+const NotLoggedIn = (props) => {
   return (
     <Center height="100vh">
       <VStack>
