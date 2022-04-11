@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "components/Profile.jsx",
-    "pages/api/auth/[...nextauth].js"
+    "pages/api/auth/[...nextauth].js",
+    "pages/exercises/index.js"
   ],
   "exclude": ["node_modules"]
 }
