@@ -1,8 +1,7 @@
-import { NextApiResponse, NextApiRequest } from "next";
 import { getSession } from "next-auth/react";
 import prisma from "../../../utils/prisma";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req, res) => {
   const session = await getSession({ req });
   const workout = await prisma.workout.findMany({
     where: { userEmail: session?.user?.email },

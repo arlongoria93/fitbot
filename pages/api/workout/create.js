@@ -1,7 +1,6 @@
-import { NextApiResponse, NextApiRequest } from "next";
 import prisma from "../../../utils/prisma";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req, res) => {
   try {
     for (const e of req.body.exercises) {
       await prisma.workoutsOnExercises.create({
