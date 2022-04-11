@@ -9,10 +9,11 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import Navbar from "../../../components/NavBar";
-import prisma from "../../../utils/prisma";
+
 import NotLoggedIn from "../../../components/NotLoggedIn";
 
 import { useSession, signOut } from "next-auth/react";
+import prisma from "../../../utils/prisma";
 const SingleWorkout = (props) => {
   const [workout, setWorkout] = useState([]);
   const router = useRouter();

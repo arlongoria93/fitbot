@@ -16,7 +16,6 @@ import { useSession, signOut } from "next-auth/react";
 import Navbar from "../../components/NavBar";
 import NotLoggedIn from "../../components/NotLoggedIn";
 import prisma from "../../utils/prisma";
-
 const Exercises = (props) => {
   const { data: session } = useSession();
   if (session)
@@ -61,7 +60,7 @@ const Exercises = (props) => {
 export default Exercises;
 
 export const getServerSideProps = async () => {
-  const exercises = await prisma.exercise.findMany();
+  const exercises = await prisma.exercises.findMany();
 
   return {
     props: { exercises },
