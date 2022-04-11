@@ -5,14 +5,10 @@ import {
   VStack,
   Menu,
   Flex,
-  MenuButton,
-  MenuList,
-  MenuItem,
   Center,
   Button,
   SimpleGrid,
   GridItem,
-  Link,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
@@ -67,8 +63,7 @@ const Exercises = (props: Props) => {
 
 export default Exercises;
 
-export const getServerSideProps = async (context) => {
-  const { id } = context.query;
+export const getServerSideProps = async () => {
   const exercises = await prisma.exercise.findMany();
 
   return {

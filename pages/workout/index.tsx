@@ -23,8 +23,21 @@ const index = (props: Props) => {
   const [workoutId, setWorkoutId] = useState(0);
   const { data, error } = useSWR("/api/workout/recent", fetcher);
   const chestWorkoutHandler = () => {
-    Router.push(`/workout/${workoutId}`);
+    Router.push(`/workoutBody/chest/${workoutId}`);
   };
+  const shoulderWorkoutHandler = () => {
+    Router.push(`/workoutBody/shoulders/${workoutId}`);
+  };
+  const backWorkoutHandler = () => {
+    Router.push(`/workoutBody/back/${workoutId}`);
+  };
+  const armWorkoutHandler = () => {
+    Router.push(`/workoutBody/arms/${workoutId}`);
+  };
+  const legWorkoutHandler = () => {
+    Router.push(`/workoutBody/legs/${workoutId}`);
+  };
+
   useEffect(() => {
     if (data) setWorkoutId(data[0].id);
   }, [data]);
@@ -36,7 +49,6 @@ const index = (props: Props) => {
         </GridItem>{" "}
         <GridItem>
           <Center>
-            {workoutId && <Heading>{workoutId}</Heading>}
             <Heading>Please Select A Muscle</Heading>
           </Center>
         </GridItem>
@@ -59,15 +71,37 @@ const index = (props: Props) => {
                   >
                     Chest
                   </Button>
-
-                  <Button w="full" bg="brand.onPrimary" size="lg">
+                  <Button
+                    w="full"
+                    bg="brand.onPrimary"
+                    size="lg"
+                    onClick={armWorkoutHandler}
+                  >
                     Arms
                   </Button>
-                  <Button w="full" bg="brand.onPrimary" size="lg">
+                  <Button
+                    w="full"
+                    bg="brand.onPrimary"
+                    size="lg"
+                    onClick={backWorkoutHandler}
+                  >
                     Back
                   </Button>
-                  <Button w="full" bg="brand.onPrimary" size="lg">
+                  <Button
+                    w="full"
+                    bg="brand.onPrimary"
+                    size="lg"
+                    onClick={shoulderWorkoutHandler}
+                  >
                     Shoulders
+                  </Button>{" "}
+                  <Button
+                    w="full"
+                    bg="brand.onPrimary"
+                    size="lg"
+                    onClick={legWorkoutHandler}
+                  >
+                    Legs
                   </Button>
                 </VStack>
               </Center>

@@ -8,14 +8,12 @@ import {
   Text,
   HStack,
 } from "@chakra-ui/react";
-import Navbar from "../../components/NavBar";
-import prisma from "../../utils/prisma";
-import NotLoggedIn from "../../components/NotLoggedIn";
-type Props = {
-  exercises?: { body: string; how: string; id: number; name: string };
-};
+import Navbar from "../../../components/NavBar";
+import prisma from "../../../utils/prisma";
+import NotLoggedIn from "../../../components/NotLoggedIn";
+
 import { useSession, signOut } from "next-auth/react";
-const SingleWorkout = (props: Props) => {
+const SingleWorkout = (props) => {
   const [workout, setWorkout] = useState([]);
   const router = useRouter();
   const { id } = router.query;
@@ -71,9 +69,10 @@ const SingleWorkout = (props: Props) => {
 export default SingleWorkout;
 
 export const getServerSideProps = async (context) => {
-  const { id } = context.query;
+  const { id, slug } = context.query;
+
   const exercises = await prisma.exercise.findMany({
-    where: { body: "chest" },
+    where: { body: slug },
     take: 5,
   });
   try {
