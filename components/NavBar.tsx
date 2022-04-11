@@ -17,6 +17,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   const { data: session } = useSession();
+
   return (
     <VStack justify="space-between" shadow="md">
       <Box
@@ -62,6 +63,9 @@ const Navbar = (props: Props) => {
             </MenuItem>{" "}
             <MenuItem
               _hover={{ bg: "brand.onPrimary", color: "brand.secondary" }}
+              onClick={() => {
+                Router.push(`/log/${session?.user.email}`);
+              }}
             >
               Log
             </MenuItem>{" "}
